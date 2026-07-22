@@ -1,3 +1,5 @@
 # AI instructions
 
-В этом разделе хранятся инструкции вайбкодинга платформы SSP.
+This is AI agent coding guide
+
+If you are an AI coding agent, read /docs/ai before writing any code.
