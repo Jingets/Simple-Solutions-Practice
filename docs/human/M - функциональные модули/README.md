@@ -198,3 +198,33 @@
 ---
 
 ## Сквозной Workflow MVP
+
+LeadRegistration (M-102)
+↓
+
+CheckupCompletion (M-104)
+↓
+
+EstimationPublication (M-104) — консультант публикует оценку
+↓
+
+OfferPublication (M-105) — формирование и отправка оферты
+↓
+
+OfferAcceptance (M-105) — поступление оплаты
+↓
+
+ProjectExecution (M-106) — выполнение работ
+↓
+
+ProjectCompletion (M-106) — завершение работ
+↓
+
+ProjectClosure (M-107) — оформление акта, закрытие
+↓
+
+TransferToOrganizationalMemory (M-108) — передача опыта
+
+---
+
+**Дата последнего обновления:** 2026-07-24
