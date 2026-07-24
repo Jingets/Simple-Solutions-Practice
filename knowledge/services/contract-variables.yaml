@@ -1,0 +1,6 @@
+{{client.name}}
+{{client.organization}}
+{{service.name}}
+{{service.price}}
+{{project.number}}
+{{contract.date}}

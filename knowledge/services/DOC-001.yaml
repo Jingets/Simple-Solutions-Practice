@@ -1,0 +1,77 @@
+id: DOC-001
+
+title: Public Offer Template
+
+version: 1.0
+
+document_type: public_offer
+
+generated: true
+
+inputs:
+
+  client:
+
+    name:
+
+    organization:
+
+    email:
+
+    phone:
+
+  service:
+
+    id:
+
+    name:
+
+    description:
+
+  pricing:
+
+    price:
+
+    currency:
+
+  execution:
+
+    duration_days:
+
+    deliverables:
+
+  contractor:
+
+    legal_name:
+
+    tax_id:
+
+    registration_number:
+
+    address:
+
+outputs:
+
+  contract_number:
+
+  contract_date:
+
+  offer_text:
+
+  payment_terms:
+
+  acceptance_terms:
+
+attachments:
+
+  invoice:
+
+  completion_act:
+
+  report:
+
+  certificate:
+
+status:
+
+  active: true
