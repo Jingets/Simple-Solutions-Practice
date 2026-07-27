@@ -1,0 +1,68 @@
+id: OFR
+
+title: Offer Contract
+
+version: 1.0
+
+document_type: offer
+
+status: active
+
+generated: true
+
+template: OFR.template.md
+
+description: >
+  Automatically generated public offer contract for SSP services.
+
+project_relation:
+
+  primary_key: project_id
+
+required_objects:
+
+  - contractor
+
+  - client
+
+  - service
+
+  - pricing
+
+  - contract
+
+  - project
+
+source_documents:
+
+  - SRV-001
+
+  - PRC-001
+
+generation_stage:
+
+  after: Proposal
+
+generates:
+
+  - INV
+
+business_events:
+
+  created: OfferGenerated
+
+  accepted: OfferAccepted
+
+outputs:
+
+  - pdf
+
+storage:
+
+  workspace: true
+
+  database: true
+
+editable: false
+
+language: ru-RU
