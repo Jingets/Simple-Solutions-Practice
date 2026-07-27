@@ -1,0 +1,59 @@
+id: REP
+
+title: Final Report
+
+version: 1.0
+
+document_type: report
+
+status: active
+
+template: REP.template.md
+
+description: >
+  Automatically generated analytical report describing the results
+  of the SSP consulting project.
+
+inputs:
+
+  - project
+
+  - contractor
+
+  - client
+
+  - service
+
+  - checkup
+
+  - findings
+
+  - recommendations
+
+sources:
+
+  - SRV-001
+
+  - Project
+
+generation:
+
+  trigger: ProjectCompleted
+
+outputs:
+
+  - pdf
+
+business_events:
+
+  created: ReportGenerated
+
+storage:
+
+  workspace: true
+
+  database: true
+
+editable: true
+
+language: ru-RU

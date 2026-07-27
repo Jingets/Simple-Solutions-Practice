@@ -1,0 +1,64 @@
+id: PRC
+
+title: Pricing Matrix
+
+version: 1.0
+
+document_type: pricing_matrix
+
+status: active
+
+description: >
+  Master pricing matrix for SSP consulting services.
+
+pricing:
+
+  - service: SRV-001
+
+    model: fixed
+
+    price: 30000
+
+    currency: RUB
+
+    custom_price: false
+
+    status: active
+
+  - service: SRV-002
+
+    model: fixed
+
+    price: 80000
+
+    currency: RUB
+
+    custom_price: false
+
+    status: active
+
+  - service: SRV-003
+
+    model: fixed
+
+    price: 130000
+
+    currency: RUB
+
+    custom_price: true
+
+    status: active
+
+  - service: SRV-004
+
+    model: monthly
+
+    price: 100000
+
+    currency: RUB
+
+    billing_period: month
+
+    custom_price: true
+
+    status: active

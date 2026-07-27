@@ -1,0 +1,116 @@
+id: SRV
+
+title: Service Catalog
+
+version: 1.0
+
+document_type: service_catalog
+
+status: active
+
+description: >
+  Master catalog of SSP consulting services.
+
+services:
+
+  - id: SRV-001
+
+    code: CHECKUP
+
+    name: Бизнес Check-up
+
+    goal: >
+      Первичная диагностика состояния бизнеса и выявление ключевых ограничений.
+
+    description: >
+      Комплексная оценка текущего состояния компании по стандартной методике SSP.
+
+    deliverables:
+
+      - Отчёт REP
+
+      - Перечень выявленных проблем
+
+      - Приоритетные рекомендации
+
+    pricing_model: CHECKUP
+
+    execution_days: 5
+
+    status: active
+
+  - id: SRV-002
+
+    code: DEEP_ANALYSIS
+
+    name: Глубокая бизнес-диагностика
+
+    goal: >
+      Детальное исследование одного или нескольких направлений деятельности компании.
+
+    description: >
+      Анализ процессов, финансовых показателей и организационной структуры.
+
+    deliverables:
+
+      - Детальный аналитический отчёт
+
+      - План улучшений
+
+    pricing_model: ANALYSIS
+
+    execution_days: 15
+
+    status: active
+
+  - id: SRV-003
+
+    code: IMPLEMENTATION
+
+    name: Сопровождение внедрения
+
+    goal: >
+      Помощь клиенту при реализации согласованных изменений.
+
+    description: >
+      Консультационное сопровождение внедрения рекомендаций SSP.
+
+    deliverables:
+
+      - План внедрения
+
+      - Контроль выполнения
+
+      - Финальный отчёт
+
+    pricing_model: IMPLEMENTATION
+
+    execution_days: 30
+
+    status: active
+
+  - id: SRV-004
+
+    code: MENTORING
+
+    name: Стратегическое сопровождение
+
+    goal: >
+      Регулярная работа с собственником бизнеса по развитию компании.
+
+    description: >
+      Долгосрочное консультирование и стратегическая поддержка.
+
+    deliverables:
+
+      - План развития
+
+      - Регулярные консультации
+
+      - Ежемесячные отчёты
+
+    pricing_model: SUBSCRIPTION
+
+    execution_days: null
+
+    status: active
