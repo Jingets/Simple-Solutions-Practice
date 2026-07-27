@@ -1,17 +1,17 @@
-id: OFR
+id: INV
 
-title: Offer Contract
+title: Invoice
 
 version: 1.0
 
-document_type: offer
+document_type: invoice
 
 status: active
 
-template: OFR.template.md
+template: INV.template.md
 
 description: >
-  Automatically generated public offer contract for SSP consulting services.
+  Automatically generated payment invoice for SSP consulting services.
 
 inputs:
 
@@ -21,15 +21,17 @@ inputs:
   - contract
   - service
   - pricing
+  - invoice
 
 sources:
 
+  - OFR
   - SRV-001
   - PRC-001
 
 generation:
 
-  trigger: ProposalApproved
+  trigger: OfferGenerated
 
 outputs:
 
@@ -37,9 +39,9 @@ outputs:
 
 business_events:
 
-  created: OfferGenerated
+  created: InvoiceGenerated
 
-  accepted: OfferAccepted
+  paid: PaymentReceived
 
 storage:
 
