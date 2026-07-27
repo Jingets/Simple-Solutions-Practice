@@ -119,19 +119,19 @@ id : UUID
 
 Допустимые значения:
 
-NEW
+DRAFT
 
-CHECKUP
+IN_PROGRESS
 
-ESTIMATION
+ON_HOLD
 
-CONTRACT
+WAITING_CLIENT
 
-IN\_PROGRESS
+REVIEW
 
 COMPLETED
 
-ARCHIVED
+CLOSED
 
 Другие значения запрещены.
 
