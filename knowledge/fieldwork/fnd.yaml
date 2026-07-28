@@ -1,0 +1,74 @@
+id: FND
+
+title: Findings
+
+version: 1.0
+
+document_type: findings
+
+status: active
+
+template: FND.template.md
+
+description: >
+  Structured findings produced during the Business Check-up.
+  Findings are the only valid source for generating the final analytical report.
+
+inputs:
+
+  - request_package
+  - interview
+  - observations
+  - metrics
+
+generation:
+
+  trigger: MetricsCollectionCompleted
+
+outputs:
+
+  - findings
+
+business_events:
+
+  created: FindingsGenerated
+
+storage:
+
+  workspace: true
+
+  database: true
+
+editable: true
+
+language: ru-RU
+
+sections:
+
+  - facts
+  - analysis
+  - problems
+  - causes
+  - recommendations
+  - expected_effect
+
+traceability:
+
+  enabled: true
+
+validation:
+
+  require_fact: true
+
+  require_problem: true
+
+  require_cause: true
+
+  require_recommendation: true
+
+quality_control:
+
+  logical_consistency: true
+
+  completeness_check: true
+  

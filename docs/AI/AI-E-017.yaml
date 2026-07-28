@@ -1,0 +1,142 @@
+id: AI-E-017
+
+title: SDK Module Specification
+
+version: 2.0
+
+purpose: >
+  Defines mandatory SDK rules for every SSP module.
+
+module:
+
+  required:
+
+    - manifest
+    - capabilities
+    - event_subscriptions
+    - configuration
+    - health_check
+
+lifecycle:
+
+  - install
+  - initialize
+  - register_manifest
+  - register_capabilities
+  - register_events
+  - ready
+  - running
+  - stopping
+  - dispose
+
+manifest:
+
+  required:
+
+    - module_id
+    - module_name
+    - version
+    - description
+    - author
+    - sdk_version
+    - capabilities
+    - events
+    - configuration
+
+capability_contract:
+
+  required:
+
+    - capability_id
+    - name
+    - description
+    - input
+    - output
+    - permissions
+    - business_events
+
+context_api:
+
+  allowed:
+
+    - project
+    - client
+    - contractor
+    - service
+    - configuration
+    - artifacts
+
+artifact_api:
+
+  actions:
+
+    - create
+    - read
+    - update
+    - archive
+
+event_api:
+
+  publish: true
+
+  subscribe: true
+
+workflow:
+
+  registration_required: true
+
+configuration:
+
+  external_only: true
+
+logging:
+
+  required: true
+
+audit:
+
+  required: true
+
+health_check:
+
+  required: true
+
+versioning:
+
+  semantic: true
+
+compatibility:
+
+  backward_required: true
+
+testing:
+
+  required:
+
+    - unit_tests
+    - integration_tests
+
+definition_of_done:
+
+  - manifest_registered
+  - capabilities_registered
+  - events_registered
+  - health_check_passed
+  - tests_passed
+  - documentation_completed
+
+forbidden:
+
+  - direct_module_calls
+  - direct_database_access_to_other_modules
+  - hardcoded_configuration
+  - undocumented_capabilities
+
+output:
+
+  language: typescript
+
+  architecture: modular
+
+  framework: sdk_only
+  
