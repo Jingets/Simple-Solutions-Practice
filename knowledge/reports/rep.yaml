@@ -1,6 +1,6 @@
 id: REP
 
-title: Final Report
+title: Final Analytical Report
 
 version: 1.0
 
@@ -11,30 +11,23 @@ status: active
 template: REP.template.md
 
 description: >
-  Automatically generated analytical report describing the results
-  of the SSP consulting project.
+  Automatically generated final analytical report describing
+  the results of an SSP consulting project.
 
 inputs:
 
   - project
-
   - contractor
-
   - client
-
   - service
-
-  - checkup
-
-  - findings
-
-  - recommendations
+  - report
 
 sources:
 
-  - SRV-001
-
+  - SRV
   - Project
+  - Check-up
+  - Findings
 
 generation:
 
@@ -57,3 +50,42 @@ storage:
 editable: true
 
 language: ru-RU
+
+sections:
+
+  - project_passport
+  - project_goal
+  - input_data
+  - analysis
+  - problems
+  - causes
+  - recommendations
+  - action_plan
+  - conclusion
+
+traceability:
+
+  enabled: true
+
+  chain:
+
+    - input_data
+    - analysis
+    - problems
+    - causes
+    - recommendations
+    - action_plan
+
+validation:
+
+  require_analysis: true
+
+  require_problem_for_recommendation: true
+
+  require_cause_for_recommendation: true
+
+quality_control:
+
+  logical_consistency: true
+
+  completeness_check: true

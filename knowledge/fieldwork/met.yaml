@@ -1,0 +1,63 @@
+id: MET
+
+title: Metrics Collection
+
+version: 1.0
+
+document_type: metrics
+
+status: active
+
+template: MET.template.md
+
+description: >
+  Structured collection of quantitative business metrics
+  used during the SSP Business Check-up.
+
+inputs:
+
+  - project
+  - client
+  - service
+
+generation:
+
+  trigger: ObservationCompleted
+
+outputs:
+
+  - metrics
+
+business_events:
+
+  created: MetricsCollectionStarted
+
+  completed: MetricsCollectionCompleted
+
+storage:
+
+  workspace: true
+
+  database: true
+
+editable: true
+
+language: ru-RU
+
+sections:
+
+  - finance
+  - sales
+  - operations
+  - customers
+  - personnel
+  - management
+
+quality_control:
+
+  completeness_check: true
+
+validation:
+
+  allow_missing_metrics: true
+  

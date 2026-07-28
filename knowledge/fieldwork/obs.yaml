@@ -1,0 +1,61 @@
+id: OBS
+
+title: Observation Checklist
+
+version: 1.0
+
+document_type: observation
+
+status: active
+
+template: OBS.template.md
+
+description: >
+  Structured checklist used by the consultant to record
+  direct observations during the Business Check-up.
+
+inputs:
+
+  - project
+  - client
+  - service
+
+generation:
+
+  trigger: InterviewCompleted
+
+outputs:
+
+  - observation
+
+business_events:
+
+  created: ObservationStarted
+
+  completed: ObservationCompleted
+
+storage:
+
+  workspace: true
+
+  database: true
+
+editable: true
+
+language: ru-RU
+
+sections:
+
+  - office_environment
+  - production
+  - customer_service
+  - personnel
+  - management
+  - documentation
+  - digital_systems
+  - operational_discipline
+
+quality_control:
+
+  completeness_check: true
+  

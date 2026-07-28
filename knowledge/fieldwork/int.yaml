@@ -1,0 +1,59 @@
+id: INT
+
+title: Interview Guide
+
+version: 1.0
+
+document_type: interview
+
+status: active
+
+template: INT.template.md
+
+description: >
+  Structured interview guide used during SSP Business Check-up.
+
+inputs:
+
+  - project
+  - client
+  - service
+
+generation:
+
+  trigger: ClientDataReceived
+
+outputs:
+
+  - interview
+
+business_events:
+
+  created: InterviewPrepared
+
+storage:
+
+  workspace: true
+
+  database: true
+
+editable: true
+
+language: ru-RU
+
+sections:
+
+  - business_context
+  - owner_goals
+  - business_model
+  - finance
+  - sales
+  - operations
+  - personnel
+  - management
+  - risks
+  - expectations
+
+quality_control:
+
+  completeness_check: true

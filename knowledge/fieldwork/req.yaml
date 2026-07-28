@@ -1,0 +1,73 @@
+id: REQ
+
+title: Request Package
+
+version: 1.0
+
+document_type: request_package
+
+status: active
+
+template: REQ.template.md
+
+description: >
+  Automatically generated list of documents and information
+  required from the client before the Business Check-up begins.
+
+inputs:
+
+  - project
+  - client
+  - service
+
+sources:
+
+  - SRV
+
+generation:
+
+  trigger: ProjectCreated
+
+outputs:
+
+  - pdf
+
+business_events:
+
+  created: RequestPackageGenerated
+
+  received: ClientDataReceived
+
+storage:
+
+  workspace: true
+
+  database: true
+
+editable: true
+
+language: ru-RU
+
+sections:
+
+  - company_information
+  - legal_documents
+  - financial_information
+  - organizational_structure
+  - business_processes
+  - sales_marketing
+  - operations
+  - personnel
+  - information_systems
+  - additional_materials
+
+validation:
+
+  require_all_sections: false
+
+  allow_partial_submission: true
+
+quality_control:
+
+  completeness_check: true
+  
