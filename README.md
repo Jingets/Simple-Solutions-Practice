@@ -94,7 +94,7 @@
 
 Для Pilot MVP применяется единая каноническая спецификация:
 
-- [`AI-008. Pilot MVP Canonical Specification`](docs/AI/AI-008.%20Pilot%20MVP%20Canonical%20Specification.md)
+- [`AI-008. Pilot MVP Каноническая спецификация`](docs/AI/AI-008.%20Pilot%20MVP%20Каноническая%20спецификация.md)
 
 Порядок применения остальных разделов определён только в AI-008 и не дублируется в README.
 
