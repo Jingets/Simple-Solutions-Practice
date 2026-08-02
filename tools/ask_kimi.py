@@ -15,6 +15,7 @@ if not api_key:
 client = OpenAI(
     base_url="https://api.tokenrouter.com/v1",
     api_key=api_key,
+    timeout=60.0,
 )
 
 parser = argparse.ArgumentParser()
