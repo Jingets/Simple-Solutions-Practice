@@ -1,6 +1,9 @@
+from pathlib import Path
 from openai import OpenAI
 from dotenv import load_dotenv
+import argparse
 import os
+import sys
 
 load_dotenv()
 
@@ -14,17 +17,31 @@ client = OpenAI(
     api_key=api_key,
 )
 
+parser = argparse.ArgumentParser()
+parser.add_argument("prompt_file", help="Markdown file with prompt")
+args = parser.parse_args()
+
+prompt_path = Path(args.prompt_file)
+
+if not prompt_path.exists():
+    print(f"File not found: {prompt_path}")
+    sys.exit(1)
+
+prompt = prompt_path.read_text(encoding="utf-8")
+
 messages = [
     {
         "role": "system",
         "content": (
             "You are a senior software engineer. "
-            "Generate production-quality code only."
+            "Follow the specification exactly. "
+            "Do not invent architecture. "
+            "Return only the requested result."
         ),
     },
     {
         "role": "user",
-        "content": "Who are you?",
+        "content": prompt,
     },
 ]
 
@@ -32,17 +49,11 @@ stream = client.chat.completions.create(
     model="moonshotai/kimi-k3-free",
     messages=messages,
     stream=True,
-    stream_options={"include_usage": True},
 )
 
-print()
-
 for chunk in stream:
-
     if chunk.choices:
-
         delta = chunk.choices[0].delta
-
         if delta.content:
             print(delta.content, end="", flush=True)
 
