@@ -61,6 +61,7 @@ backend/
         __init__.py
 
     tests/
+       __init__.py    
 
 frontend/
 
@@ -147,15 +148,4 @@ SDK implementation
 
 ---
 
-## Output
-
-Return complete contents of every created file.
-
-Return complete directory tree.
-
-Do not omit any files.
-
-Do not explain the solution.
-
-Return code only.
-
+       __init__.py
