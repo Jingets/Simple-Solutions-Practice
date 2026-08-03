@@ -4,6 +4,7 @@ from dotenv import load_dotenv
 import argparse
 import os
 import sys
+import time
 
 load_dotenv()
 
@@ -18,44 +19,85 @@ client = OpenAI(
     timeout=60.0,
 )
 
-parser = argparse.ArgumentParser()
-parser.add_argument("prompt_file", help="Markdown file with prompt")
+parser = argparse.ArgumentParser(
+    description="Simple Solutions Practice AI Builder"
+)
+
+parser.add_argument(
+    "prompt_file",
+    help="Markdown file with task"
+)
+
+parser.add_argument(
+    "--model",
+    default="moonshotai/kimi-k3-free",
+    help="LLM model"
+)
+
+parser.add_argument(
+    "--output",
+    help="Save response to file"
+)
+
 args = parser.parse_args()
 
 prompt_path = Path(args.prompt_file)
 
 if not prompt_path.exists():
-    print(f"File not found: {prompt_path}")
+    print(f"ERROR: file not found: {prompt_path}")
     sys.exit(1)
 
 prompt = prompt_path.read_text(encoding="utf-8")
 
-messages = [
-    {
-        "role": "system",
-        "content": (
-            "You are a senior software engineer. "
-            "Follow the specification exactly. "
-            "Do not invent architecture. "
-            "Return only the requested result."
-        ),
-    },
-    {
-        "role": "user",
-        "content": prompt,
-    },
-]
+print(f"Prompt: {prompt_path}")
+print(f"Characters: {len(prompt)}")
+print(f"Model: {args.model}")
+print("Sending request...")
 
-stream = client.chat.completions.create(
-    model="moonshotai/kimi-k3-free",
-    messages=messages,
-    stream=True,
-)
+start = time.perf_counter()
 
-for chunk in stream:
-    if chunk.choices:
-        delta = chunk.choices[0].delta
-        if delta.content:
-            print(delta.content, end="", flush=True)
+try:
+
+    response = client.chat.completions.create(
+        model=args.model,
+        messages=[
+            {
+                "role": "system",
+                "content": (
+                    "You are a senior software engineer.\n"
+                    "Follow the specification exactly.\n"
+                    "Do not invent architecture.\n"
+                    "Return only the requested result."
+                ),
+            },
+            {
+                "role": "user",
+                "content": prompt,
+            },
+        ],
+    )
+
+except Exception as e:
+    print()
+    print("REQUEST FAILED")
+    print(type(e).__name__)
+    print(e)
+    sys.exit(1)
+
+elapsed = time.perf_counter() - start
+
+text = response.choices[0].message.content
 
 print()
+print("=" * 80)
+print(text)
+print("=" * 80)
+print()
+
+print(f"Completed in {elapsed:.2f} sec")
+
+if args.output:
+    output_path = Path(args.output)
+    output_path.parent.mkdir(parents=True, exist_ok=True)
+    output_path.write_text(text, encoding="utf-8")
+    print(f"Saved to {output_path}")
