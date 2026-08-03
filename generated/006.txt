@@ -1,0 +1,33 @@
+=== FILE: backend/kernel/module_mapper.py ===
+"""Mapper that converts ModuleManifest instances into ModuleDescriptor instances."""
+
+from dataclasses import fields as dataclass_fields
+from dataclasses import is_dataclass
+
+from backend.kernel.module_descriptor import ModuleDescriptor
+from backend.kernel.module_manifest import ModuleManifest
+
+_IGNORED_FIELDS = ("dependencies", "permissions")
+
+
+class ModuleMapper:
+    """Performs plain object mapping from ModuleManifest to ModuleDescriptor."""
+
+    def to_descriptor(self, manifest: ModuleManifest) -> ModuleDescriptor:
+        """Create and return a new ModuleDescriptor with all common fields copied.
+
+        Fields named dependencies and permissions are ignored.
+        The source manifest object is never modified.
+        """
+        if is_dataclass(manifest):
+            data = {
+                field.name: getattr(manifest, field.name)
+                for field in dataclass_fields(manifest)
+            }
+        else:
+            data = dict(vars(manifest))
+
+        for ignored_field in _IGNORED_FIELDS:
+            data.pop(ignored_field, None)
+
+        return ModuleDescriptor(**data)

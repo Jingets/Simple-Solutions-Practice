@@ -1,0 +1,39 @@
+=== FILE: backend/kernel/manifest_factory.py
+
+"""Factory that converts raw manifest data into ModuleManifest objects."""
+
+from backend.kernel.module_manifest import ModuleManifest
+
+
+class ManifestFactory:
+    """Creates ModuleManifest instances from raw manifest data."""
+
+    REQUIRED_FIELDS = (
+        "id",
+        "name",
+        "version",
+        "description",
+        "author",
+        "entrypoint",
+        "enabled",
+    )
+
+    def create(self, data: dict) -> ModuleManifest:
+        for field in self.REQUIRED_FIELDS:
+            if field not in data:
+                raise ValueError(f"Missing required field: {field}")
+
+        dependencies = data.get("dependencies", [])
+        permissions = data.get("permissions", [])
+
+        return ModuleManifest(
+            id=data["id"],
+            name=data["name"],
+            version=data["version"],
+            description=data["description"],
+            author=data["author"],
+            entrypoint=data["entrypoint"],
+            enabled=data["enabled"],
+            dependencies=dependencies,
+            permissions=permissions,
+        )
