@@ -1,0 +1,17 @@
+=== FILE: backend/kernel/manifest_reader.py ===
+
+import os
+
+import yaml
+
+
+class ManifestReader:
+    def read(self, path: str) -> dict:
+        if not os.path.exists(path):
+            raise FileNotFoundError(path)
+
+        with open(path, "r", encoding="utf-8") as file:
+            try:
+                return yaml.safe_load(file)
+            except yaml.YAMLError as exc:
+                raise ValueError(str(exc)) from exc
