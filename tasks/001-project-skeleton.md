@@ -148,4 +148,30 @@ SDK implementation
 
 ---
 
-       __init__.py
+## Output format
+
+THIS FORMAT IS MANDATORY.
+
+Return plain text only.
+
+Do not use Markdown.
+
+Do not use triple backticks.
+
+Do not use file trees.
+
+Do not use explanations.
+
+Output every file exactly in the following format:
+
+=== FILE: backend/app/main.py ===
+from fastapi import FastAPI
+
+app = FastAPI(title="Simple Solutions Practice")
+
+=== FILE: requirements.txt ===
+fastapi
+uvicorn
+pydantic
+
+If you use Markdown or code fences, your answer is incorrect.
