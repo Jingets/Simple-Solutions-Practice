@@ -9,35 +9,35 @@ args = parser.parse_args()
 root = Path(args.root)
 text = Path(args.input_file).read_text(encoding="utf-8")
 
-current_file = None
-buffer = []
+current_name = None
+current_lines = []
 
-def save():
-    if current_file is None:
+def save_file():
+    if current_name is None:
         return
 
-    path = root / current_file
+    path = root / current_name
     path.parent.mkdir(parents=True, exist_ok=True)
 
-    content = "\n".join(buffer).rstrip() + "\n"
+    content = "\n".join(current_lines).rstrip() + "\n"
     path.write_text(content, encoding="utf-8")
 
-    print(f"Created: {path}")
+    print(f"✓ {current_name}")
 
 for line in text.splitlines():
 
     if line.startswith("=== FILE: ") and line.endswith(" ==="):
 
-        save()
+        save_file()
 
-        current_file = line[len("=== FILE: "):-len(" ===")]
+        current_name = line[10:-4].strip()
 
-        buffer = []
+        current_lines = []
 
         continue
 
-    buffer.append(line)
+    current_lines.append(line)
 
-save()
+save_file()
 
 print("Done.")
