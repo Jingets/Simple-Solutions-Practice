@@ -1,4 +1,5 @@
-from .module_descriptor import ModuleDescriptor
-from .module_registry import ModuleRegistry
+from .platform import Platform
 
-__all__ = ["ModuleDescriptor", "ModuleRegistry"]
+__all__ = [
+    "Platform",
+]
