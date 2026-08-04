@@ -1,8 +1,12 @@
+from dataclasses import dataclass
+
+
+@dataclass(slots=True)
 class ModuleContext:
     """
-    Runtime context provided by the platform.
+    Runtime context passed to every module.
 
-    The implementation will be extended in future versions.
+    Will be extended with services in future versions.
     """
 
-    pass
+    platform: object | None = None

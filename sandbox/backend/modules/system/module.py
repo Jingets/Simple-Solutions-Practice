@@ -4,13 +4,13 @@ from backend.sdk import ModuleContext
 
 class SystemModule(Module):
     def install(self, context: ModuleContext) -> None:
-        pass
+        print("[System] install")
 
     def start(self, context: ModuleContext) -> None:
-        pass
+        print("[System] start")
 
     def stop(self, context: ModuleContext) -> None:
-        pass
+        print("[System] stop")
 
     def uninstall(self, context: ModuleContext) -> None:
-        pass
+        print("[System] uninstall")

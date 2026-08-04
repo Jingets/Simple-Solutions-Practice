@@ -1,6 +1,24 @@
+from contextlib import asynccontextmanager
+
 from fastapi import FastAPI
 
-app = FastAPI(title="Simple Solutions Practice")
+from backend.app.bootstrap import bootstrap
+
+
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    app.state.platform = bootstrap()
+
+    yield
+
+    # Здесь позже появится:
+    # app.state.platform.stop_all()
+
+
+app = FastAPI(
+    title="Simple Solutions Practice",
+    lifespan=lifespan,
+)
 
 
 @app.get("/")

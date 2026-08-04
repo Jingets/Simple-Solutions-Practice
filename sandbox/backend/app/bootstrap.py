@@ -1,9 +1,25 @@
 from backend.kernel import Platform
 
-platform = Platform()
 
-platform.load_module(
-    "backend/modules/system/manifest.yaml"
-)
+def bootstrap() -> Platform:
+    print("BOOTSTRAP START")
 
-module = platform.create_module("system")
+    platform = Platform()
+
+    print("PLATFORM CREATED")
+
+    platform.load_module(
+        "backend/modules/system/manifest.yaml"
+    )
+
+    print("MODULE LOADED")
+
+    platform.install_module("system")
+
+    print("MODULE INSTALLED")
+
+    platform.start_module("system")
+
+    print("MODULE STARTED")
+
+    return platform

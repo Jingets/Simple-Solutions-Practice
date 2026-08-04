@@ -5,6 +5,8 @@ from .module_loader import ModuleLoader
 from .module_mapper import ModuleMapper
 from .module_registry import ModuleRegistry
 
+from backend.sdk import ModuleContext
+
 
 class Platform:
     def __init__(self) -> None:
@@ -29,3 +31,13 @@ class Platform:
     def create_module(self, module_id: str):
         descriptor = self._registry.get(module_id)
         return self._activator.create(descriptor.entrypoint)
+
+    def install_module(self, module_id: str) -> None:
+        module = self.create_module(module_id)
+        context = ModuleContext(platform=self)
+        module.install(context)
+
+    def start_module(self, module_id: str) -> None:
+        module = self.create_module(module_id)
+        context = ModuleContext(platform=self)
+        module.start(context)
