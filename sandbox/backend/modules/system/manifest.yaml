@@ -1,0 +1,18 @@
+id: system
+
+name: System Module
+
+version: 0.1.0
+
+description: Core system module.
+
+author: Simple Solutions Practice
+
+entrypoint: backend.modules.system.module:SystemModule
+
+enabled: true
+
+dependencies: []
+
+permissions:
+  - read
