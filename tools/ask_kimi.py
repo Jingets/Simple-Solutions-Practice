@@ -13,10 +13,18 @@ api_key = os.getenv("TOKENROUTER_API_KEY")
 if not api_key:
     raise RuntimeError("TOKENROUTER_API_KEY not found in .env")
 
+from openai import OpenAI
+import httpx
+
 client = OpenAI(
     base_url="https://api.tokenrouter.com/v1",
     api_key=api_key,
-    timeout=60.0,
+    timeout=httpx.Timeout(
+        connect=30.0,
+        read=600.0,
+        write=30.0,
+        pool=30.0,
+    ),
 )
 
 parser = argparse.ArgumentParser(
