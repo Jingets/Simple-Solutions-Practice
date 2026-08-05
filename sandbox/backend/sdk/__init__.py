@@ -1,4 +1,4 @@
-from .context import ModuleContext
+from .module_context import ModuleContext
 from .exceptions import (
     LifecycleError,
     ModuleError,
