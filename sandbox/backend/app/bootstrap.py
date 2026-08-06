@@ -1,10 +1,11 @@
 from backend.kernel import Platform
 
 
+platform = Platform()
+
+
 def bootstrap() -> Platform:
     print("BOOTSTRAP START")
-
-    platform = Platform()
 
     print("PLATFORM CREATED")
 

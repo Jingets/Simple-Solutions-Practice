@@ -1,6 +1,6 @@
 from abc import ABC, abstractmethod
 
-from .context import ModuleContext
+from .module_context import ModuleContext
 
 
 class Module(ABC):

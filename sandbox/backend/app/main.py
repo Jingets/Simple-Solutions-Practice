@@ -2,23 +2,22 @@ from contextlib import asynccontextmanager
 
 from fastapi import FastAPI
 
+from backend.app.api import modules_router
 from backend.app.bootstrap import bootstrap
 
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
-    app.state.platform = bootstrap()
-
+    bootstrap()
     yield
-
-    # Здесь позже появится:
-    # app.state.platform.stop_all()
 
 
 app = FastAPI(
     title="Simple Solutions Practice",
     lifespan=lifespan,
 )
+
+app.include_router(modules_router)
 
 
 @app.get("/")
